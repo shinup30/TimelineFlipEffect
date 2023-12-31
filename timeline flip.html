@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vertical Timeline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #82A0D8;
+}
+.timeline{
+  position: relative;
+max-width: 1200px;
+margin: 100px auto;
+}
+.card{
+ padding:  30px 50px;
+  position: relative;
+
+animation: movedown 1s linear forwards;
+opacity: 0;
+background-color: transparent;
+  width: 500px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+@keyframes movedown{
+  0%{
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+ 100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.card:nth-child(1){
+animation-delay: 0s;
+}
+.card:nth-child(2){
+animation-delay: 1s;
+}
+.card:nth-child(3){
+animation-delay: 2s;
+}
+.card:nth-child(4){
+animation-delay: 3s;
+}
+.card:nth-child(5){
+animation-delay: 4s;
+}
+
+
+.left-card{
+  left:5%;
+}
+.right-card{
+  left: 55%;
+ }
+ .cardinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card img{
+  position: absolute;
+  width:425px;
+height: 260px;
+  left: 8%;
+  top: 20px;
+  z-index: 20;
+}
+
+.timeline::after{
+  content: ' ';
+  position: absolute;
+  width:6px;
+  height: 100%;
+  background: #fff;
+  top:0;
+  left:54%;
+  margin-left:-10px;
+  z-index: -1;
+animation: moveline 6s linear forwards;
+}
+@keyframes moveline{
+  0%{
+    height: 0;
+  }
+  100%{
+    height: 100%;
+  }
+}
+.left-card-arrow{
+  height: 0;
+  width: 0;
+  position: absolute;
+  top:28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #fff;
+  right: -15px;
+}
+.right-card-arrow{
+  height: 0;
+  width: 0;
+  position: absolute;
+  top:28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #fff;
+  left: -15px;
+}
+@media screen and(max-width:600px) {
+  .timeline{
+    margin: 50px auto;
+  }
+  .timeline::after{
+    left: 31px;
+  }
+  .card{
+    width: 100;
+    padding-left: 80px;
+    padding-right: 25px;
+  }
+  .textbox{
+    font-size: 13px;
+  }
+  .textbox samll{
+    margin-bottom:10px;
+  }
+  .right-card{
+    left:0;
+  }
+  .left-card img, .right-card img {
+    left:10px;
+  }
+  .left-card-arrow,.right-card-arrow{
+    border-right: 15px solid #fff;
+    border-left:0;
+    left:-15px;
+  }
+}
+.card:hover .cardinner {
+  transform: rotateY(180deg);
+}
+.cardfront, .cardback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.cardfront {
+  background-color: #bbb;
+  color: black;
+}
+
+.cardback {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>            
+
+<div class="timeline">
+
+    <div class="card left-card">
+        <div class="cardinner">
+        <div class="cardfront">
+     <img src="https://www.dartmoorzoo.org.uk/wp-content/uploads/2021/01/Tiger-1.jpg" alt="Avatar" >
+     </div>
+     <div class="cardback">
+    
+      <h2>2020</h2>
+      <small>Event-1</small>
+      <p>Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall  
+        All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men  Couldn't put Humpty together again</p>
+    <span class="left-card-arrow"></span>
+      </div>
+      </div>
+      </div>
+  
+  <div class="card right-card">
+    <div class="cardinner">
+        <div class="cardfront">
+     <img src="https://i.natgeofe.com/k/9acd2bad-fb0e-43a8-935d-ec0aefc60c2f/monarch-butterfly-grass_3x2.jpg" alt="Avatar" >
+     </div>
+     <div class="cardback">
+ 
+      <h2>2021</h2>
+      <small>Event-2</small>
+      <p>Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall  
+        All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men  Couldn't put Humpty together again</p>
+    <span class="right-card-arrow"></span>
+      </div>
+      </div>
+      </div>
+  
+  <div class="card left-card">
+    <div class="cardinner">
+        <div class="cardfront">
+     <img src="https://images.discerningassets.com/image/upload/c_fit,h_1000,w_1000/c_fit,fl_relative,h_1.0,o_100,w_1.0/v1495901764/elephant-face_eukrhq.jpg" alt="Avatar" >
+     </div>
+     <div class="cardback">
+  
+      <h2>2022</h2>
+      <small>Event-3</small>
+      <p>Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall  
+        All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men  Couldn't put Humpty together again</p>
+    <span class="left-card-arrow"></span>
+      </div>
+      </div>
+      </div>
+  
+  <div class="card right-card">
+    <div class="cardinner">
+        <div class="cardfront">
+     <img src="data:image/jpeg;base64,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" alt="Avatar" >
+     </div>
+     <div class="cardback">
+
+      <h2>2023</h2>
+      <small>Event-4</small>
+      <p>Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall  
+        All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men  Couldn't put Humpty together again</p>
+    <span class="right-card-arrow"></span>
+      </div>
+      </div>
+      </div>
+ 
+  <div class="card left-card">
+    <div class="cardinner">
+        <div class="cardfront">
+     <img src="https://i.natgeofe.com/n/5506954d-6e0f-444c-aa83-a24adbe874e1/reptiles-hero_16x9.jpg" alt="Avatar" >
+     </div>
+     <div class="cardback">
+    
+      <h2>2024</h2>
+      <small>Event-5</small>
+      <p>Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall  
+        All the king's horses and all the king's men Couldn't put Humpty together again Humpty Dumpty sat on a wall Humpty Dumpty had a great fall All the king's horses and all the king's men  Couldn't put Humpty together again</p>
+    <span class="left-card-arrow"></span>
+      </div>
+      </div>
+      
+</div>
+</div>
+</body>
+</html>
